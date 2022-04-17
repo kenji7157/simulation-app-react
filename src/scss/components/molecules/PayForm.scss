@@ -1,0 +1,12 @@
+.m_pay-form {
+  &_input {
+    display: flex;
+    align-items: center;
+  }
+
+  &_unit {
+    font-size: 1.2rem;
+    margin-left: 1rem;
+    flex-basis: 5%;
+  }
+}

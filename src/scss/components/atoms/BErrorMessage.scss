@@ -1,0 +1,15 @@
+@import "../../variables";
+
+.a_error-message {
+  display: flex;
+  border-radius: 0.4rem;
+  background: $required;
+  color: $white;
+  align-items: center;
+  padding: 0rem 1rem;
+  margin: 1.2rem 0;
+
+  &_icon {
+    margin-right: 0.5rem;
+  }
+}

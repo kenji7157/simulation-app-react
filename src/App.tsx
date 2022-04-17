@@ -1,25 +1,23 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useReducer } from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { reducer } from './reducer';
+import { initialState } from './state/initialState';
+import { AppContext } from './context/AppContext';
+import SimulationPage from './components/pages/SimulationPage';
 
-function App() {
+import './scss/App.scss'
+
+const App: React.FC = () => {
+  // TOOD: 個別でstate使えるようにしたい
+  const [state, dispatch] = useReducer(reducer, initialState);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <AppContext.Provider value={{ state, dispatch }}>
+      <BrowserRouter>
+        <Routes>
+          <Route path='/' element={<SimulationPage />}></Route>
+        </Routes>
+      </BrowserRouter>
+    </AppContext.Provider>
   );
 }
 

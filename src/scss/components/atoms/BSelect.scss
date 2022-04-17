@@ -1,0 +1,41 @@
+@import "../../variables";
+@import "../../util";
+
+$--border-radius: 0.4rem;
+.a_select {
+  cursor: pointer;
+  display: flex;
+  border: 0.4rem solid $border;
+  border-radius: var(--border-radius);
+  position: relative;
+
+  &_icon {
+    position: absolute;
+    top: 0.7rem;
+    left: 0.7rem;
+    color: $orange;
+  }
+
+  &_select {
+    cursor: pointer;
+    width: 100%;
+    border: none;
+    outline: none;
+    background: $white;
+    padding: 1rem 0rem 1rem 3.3rem;
+
+    // 右端のデフォルトの記号を削除
+    -webkit-appearance: none; /* ベンダープレフィックス(Google Chrome、Safari用) */
+    -moz-appearance: none; /* ベンダープレフィックス(Firefox用) */
+    appearance: none; /* 標準のスタイルを無効にする */
+
+    &:focus {
+      // https://ics.media/entry/200406/
+      box-shadow: $box-shadow-focus;
+    }
+
+    &:disabled {
+      cursor: default;
+    }
+  }
+}

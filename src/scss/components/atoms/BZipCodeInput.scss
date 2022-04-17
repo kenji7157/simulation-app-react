@@ -1,0 +1,13 @@
+@import "../../variables";
+
+.a_zipcode-input {
+  &_input {
+    text-align: center;
+  }
+
+  &_hyphen {
+    padding: 0.8rem;
+    font-size: 1.5rem;
+    background: $border;
+  }
+}
