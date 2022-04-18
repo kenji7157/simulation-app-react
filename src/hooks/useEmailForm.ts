@@ -1,11 +1,12 @@
 import { useEffect, useRef, useState, useContext } from 'react';
-import { getCompanyOptions } from "../util/optionsUtil";
-import { companyTypes, CompanyTypes, SelectOption, areaTypes, AreaTypes } from "../types";
 import { AppContext } from '../context/AppContext';
-import { halfWidthNumber } from "../util/stringUtil";
+import { isValidEmail  } from "../util/validationUtil";
 
 export const useEmailForm = () => {
   const { state, dispatch } = useContext(AppContext);
+
+  const isFirstRender = useRef(true);
+  const [isError, setIsError] = useState(false)
 
   const simulationData = state.simulationData;
 
@@ -13,5 +14,16 @@ export const useEmailForm = () => {
     dispatch({ type: 'setEmail', value });
   };
 
-  return { simulationData, setEmail };
+  useEffect(() => {
+    // 初回レンダリング時はrefをfalseにして、return。
+    if (isFirstRender.current) {
+      isFirstRender.current = false;
+      return;
+    }
+
+    const result = !isValidEmail(simulationData.email);
+    setIsError(result);
+  }, [simulationData.email])
+
+  return { simulationData, setEmail, isError };
 };
