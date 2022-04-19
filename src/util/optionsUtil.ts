@@ -74,14 +74,12 @@ export function getPlanOptions(
 export function getAmpereOptions(simulationData: ISimulation): SelectOption[] {
   if (simulationData.company === companyTypes.TOKYO_DENRYOKU) {
     if (simulationData.plan === planTypes.PLAN_B) {
-      return ["10A", "15A", "20A", "30A", "40A", "50A", "60A"].map(
-        (elm, index) => {
-          return {
-            value: elm,
-            label: elm,
-          };
-        }
-      );
+      return ["10A", "15A", "20A", "30A", "40A", "50A", "60A"].map((elm) => {
+        return {
+          value: elm,
+          label: elm,
+        };
+      });
     } else if (simulationData.plan === planTypes.PLAN_C) {
       return [...Array(44)].map((_, index) => {
         return {

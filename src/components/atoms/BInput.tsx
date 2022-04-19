@@ -1,15 +1,15 @@
-import React from 'react';
-import '../../scss/_atoms.scss'
+import React from "react";
+import "../../scss/_atoms.scss";
 
 type Props = {
   disabled: boolean;
-  inputValue:  (value: string)=> void;
+  inputValue: (value: string) => void;
   value: string | number;
-}
+};
 
 const BInput: React.FC<Props> = (props: Props) => {
   return (
-    <div className={'a_input-box' + (props.disabled ? ' disabled' : '')}>
+    <div className={"a_input-box" + (props.disabled ? " disabled" : "")}>
       <input
         className="a_input-box_input"
         disabled={props.disabled}
@@ -18,7 +18,6 @@ const BInput: React.FC<Props> = (props: Props) => {
       />
     </div>
   );
-}
+};
 
 export default BInput;
-

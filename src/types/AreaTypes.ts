@@ -5,4 +5,4 @@ export const areaTypes = {
   UNSELECTED: "",
 } as const;
 
-export type AreaTypes = typeof areaTypes[keyof typeof areaTypes]; 
+export type AreaTypes = typeof areaTypes[keyof typeof areaTypes];

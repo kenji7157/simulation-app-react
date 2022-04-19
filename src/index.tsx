@@ -1,13 +1,12 @@
-
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import App from "./App";
+import reportWebVitals from "./reportWebVitals";
 import "@fortawesome/fontawesome-free/js/fontawesome";
 import "@fortawesome/fontawesome-free/js/solid";
 import "@fortawesome/fontawesome-free/js/regular";
 
-import { createRoot } from 'react-dom/client';
-const container = document.getElementById('root');
-if ( container ) {
+import { createRoot } from "react-dom/client";
+const container = document.getElementById("root");
+if (container) {
   const root = createRoot(container);
   root.render(<App />);
 }

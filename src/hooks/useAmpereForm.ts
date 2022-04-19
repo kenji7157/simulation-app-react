@@ -1,8 +1,7 @@
-import { useEffect, useRef, useState, useContext } from 'react';
+import { useEffect, useRef, useState, useContext } from "react";
 import { getAmpereOptions } from "../util/optionsUtil";
 import { SelectOption } from "../types";
-import { AppContext } from '../context/AppContext';
-
+import { AppContext } from "../context/AppContext";
 
 export const useAmpereForm = () => {
   const { state, dispatch } = useContext(AppContext);
@@ -13,7 +12,7 @@ export const useAmpereForm = () => {
   const isFirstRender = useRef(true);
 
   const setAmpere = (value: string) => {
-    dispatch({ type: 'setAmpere', value });
+    dispatch({ type: "setAmpere", value });
   };
 
   // NOTE: useCallBackを使ったほうが良いらしいので確認する
@@ -27,7 +26,6 @@ export const useAmpereForm = () => {
     setAmpereOption(options);
     setAmpere(options.length > 0 && options[0].value ? options[0].value : "");
   }, [simulationData.plan]);
-
 
   return { simulationData, ampereOption, setAmpere };
 };

@@ -1,5 +1,5 @@
-import React from 'react';
-import BHeading from '../atoms/BHeading';
+import React from "react";
+import BHeading from "../atoms/BHeading";
 import PayForm from "../molecules/PayForm";
 
 const PayBox: React.FC = () => {
@@ -11,6 +11,6 @@ const PayBox: React.FC = () => {
       </div>
     </div>
   );
-}
+};
 
 export default PayBox;

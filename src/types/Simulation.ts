@@ -18,5 +18,4 @@ export type Simulation = {
   pay: number;
   /** メールアドレス */
   email: string;
-  }
-  
+};

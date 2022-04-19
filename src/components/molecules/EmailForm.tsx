@@ -1,8 +1,8 @@
-import React from 'react';
+import React from "react";
 import BLabel from "../atoms/BLabel";
 import BInput from "../atoms/BInput";
 import BErrorMessage from "../atoms/BErrorMessage";
-import { useEmailForm } from '../../hooks/useEmailForm'
+import { useEmailForm } from "../../hooks/useEmailForm";
 import { isEnabledEmailInput } from "../../util/enabledUtil";
 
 const ZipCodeForm: React.FC = () => {
@@ -10,18 +10,17 @@ const ZipCodeForm: React.FC = () => {
 
   return (
     <div>
-      <BLabel
-        isRequired={true}
-      />
+      <BLabel isRequired={true} />
       <BInput
         disabled={!isEnabledEmailInput(simulationData)}
         inputValue={setEmail}
         value={simulationData.email}
       />
-      {isError && <BErrorMessage message='メールアドレスを正しく入力してください。' />}
+      {isError && (
+        <BErrorMessage message="メールアドレスを正しく入力してください。" />
+      )}
     </div>
   );
-}
+};
 
 export default ZipCodeForm;
-

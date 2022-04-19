@@ -5,4 +5,4 @@ export const companyTypes = {
   UNSELECTED: "",
 } as const;
 
-export type CompanyTypes = typeof companyTypes[keyof typeof companyTypes]; 
+export type CompanyTypes = typeof companyTypes[keyof typeof companyTypes];

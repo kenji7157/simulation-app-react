@@ -1,5 +1,5 @@
-import React from 'react';
-import BHeading from '../atoms/BHeading';
+import React from "react";
+import BHeading from "../atoms/BHeading";
 import EmailForm from "../molecules/EmailForm";
 
 const EmailBox: React.FC = () => {
@@ -11,6 +11,6 @@ const EmailBox: React.FC = () => {
       </div>
     </div>
   );
-}
+};
 
 export default EmailBox;

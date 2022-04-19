@@ -6,4 +6,4 @@ export type SelectOption = {
   label: string;
   /** 選択状態 */
   selected?: boolean;
-}
+};

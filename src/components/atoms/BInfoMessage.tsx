@@ -1,9 +1,9 @@
-import React from 'react';
-import '../../scss/components/atoms/BInfoMessage.scss'
+import React from "react";
+import "../../scss/components/atoms/BInfoMessage.scss";
 
 type Props = {
   message: string;
-}
+};
 
 const BInfoMessage: React.FC<Props> = (props: Props) => {
   return (
@@ -11,7 +11,6 @@ const BInfoMessage: React.FC<Props> = (props: Props) => {
       <p>{props.message}</p>
     </div>
   );
-}
+};
 
 export default BInfoMessage;
-

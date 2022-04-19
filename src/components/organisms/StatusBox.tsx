@@ -1,9 +1,8 @@
-import React from 'react';
-import BHeading from '../atoms/BHeading';
+import React from "react";
+import BHeading from "../atoms/BHeading";
 import CompanyForm from "../molecules/CompanyForm";
 import PlanForm from "../molecules/PlanForm";
 import AmpereForm from "../molecules/AmpereForm";
-
 
 const ZipCodeBox: React.FC = () => {
   return (
@@ -20,6 +19,6 @@ const ZipCodeBox: React.FC = () => {
       </div>
     </div>
   );
-}
+};
 
 export default ZipCodeBox;

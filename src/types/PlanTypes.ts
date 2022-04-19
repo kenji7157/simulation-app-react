@@ -5,4 +5,4 @@ export const planTypes = {
   UNSELECTED: "",
 } as const;
 
-export type PlanTypes = typeof planTypes[keyof typeof planTypes]; 
+export type PlanTypes = typeof planTypes[keyof typeof planTypes];

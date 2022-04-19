@@ -7,18 +7,14 @@ import { Simulation } from "../types/Simulation";
 import { SelectOption } from "../types/SelectOption";
 import { State } from "../types/State";
 
-export {
-  areaTypes,
-  companyTypes,
-  planTypes,
-};
-export type { 
-  AreaTypes, 
-  CompanyTypes, 
-  PlanTypes, 
-  ISimulation, 
+export { areaTypes, companyTypes, planTypes };
+export type {
+  AreaTypes,
+  CompanyTypes,
+  PlanTypes,
+  ISimulation,
   Simulation,
   SelectOption,
-  Action, 
-  State 
+  Action,
+  State,
 };

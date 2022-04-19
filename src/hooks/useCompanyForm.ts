@@ -1,13 +1,19 @@
-import { useEffect, useRef, useState, useContext } from 'react';
+import { useEffect, useRef, useState, useContext } from "react";
 import { getCompanyOptions } from "../util/optionsUtil";
-import { companyTypes, CompanyTypes, SelectOption, areaTypes, AreaTypes } from "../types";
-import { AppContext } from '../context/AppContext';
+import {
+  companyTypes,
+  CompanyTypes,
+  SelectOption,
+  areaTypes,
+  AreaTypes,
+} from "../types";
+import { AppContext } from "../context/AppContext";
 
 function defaultCompanyType(areaType: AreaTypes) {
   if (areaType === areaTypes.TOKYO) {
-    return companyTypes.TOKYO_DENRYOKU
+    return companyTypes.TOKYO_DENRYOKU;
   } else if (areaType === areaTypes.KANSAI) {
-    return companyTypes.KANSAI_DENRYOKU
+    return companyTypes.KANSAI_DENRYOKU;
   } else {
     return companyTypes.UNSELECTED;
   }
@@ -24,7 +30,7 @@ export const useCompanyForm = () => {
 
   const setCompanyType = (value: string) => {
     // NOTE: asなんとかしたい
-    dispatch({ type: 'setCompanyType', value: value as CompanyTypes });
+    dispatch({ type: "setCompanyType", value: value as CompanyTypes });
   };
 
   // NOTE: useCallBackを使ったほうが良いらしいので確認する

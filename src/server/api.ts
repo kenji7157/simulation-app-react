@@ -13,7 +13,16 @@ export function sendSimulationData(simulationData: ISimulation): void {
     email: simulationData.email,
   };
   alert(
-    `【結果を見る(入力値の確認)】\n郵便番号：${request.zipCode}\nエリア：${request.area}\n会社：${request.company}\nプラン：${request.plan}\n契約容量：${request.ampere}\n支払金額：${request.pay}\nメールアドレス：${request.email}`
+    `
+    【結果を見る(入力値の確認)】\n
+    郵便番号：${request.zipCode}\n
+    エリア：${request.area}\n
+    会社：${request.company}\n
+    プラン：${request.plan}\n
+    契約容量：${request.ampere}\n
+    支払金額：${request.pay}\n
+    メールアドレス：${request.email}
+    `
   );
 }
 

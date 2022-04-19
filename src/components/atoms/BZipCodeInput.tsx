@@ -1,13 +1,13 @@
-import React from 'react';
-import '../../scss/_atoms.scss'
-import '../../scss/components/atoms/BZipCodeInput.scss'
+import React from "react";
+import "../../scss/_atoms.scss";
+import "../../scss/components/atoms/BZipCodeInput.scss";
 
 type Props = {
   firstZipCode: string;
   secondZipCode: string;
-  setFirstZipCode: (value: string)=> void;
-  setSecondZipCode:  (value: string)=> void;
-}
+  setFirstZipCode: (value: string) => void;
+  setSecondZipCode: (value: string) => void;
+};
 
 const BZipCodeInput: React.FC<Props> = (props) => {
   return (
@@ -27,7 +27,6 @@ const BZipCodeInput: React.FC<Props> = (props) => {
       />
     </div>
   );
-}
+};
 
 export default BZipCodeInput;
-

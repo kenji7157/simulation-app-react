@@ -1,11 +1,11 @@
-import { 
+import {
   ISimulation,
   areaTypes,
   AreaTypes,
   companyTypes,
   CompanyTypes,
   planTypes,
-  PlanTypes
+  PlanTypes,
 } from "../types";
 
 // 郵便番号のバリデーション

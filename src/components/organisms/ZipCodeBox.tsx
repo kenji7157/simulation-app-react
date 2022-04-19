@@ -1,7 +1,7 @@
-import React from 'react';
-import BHeading from '../atoms/BHeading';
-import ZipCodeForm from '../molecules/ZipCodeForm';
-import '../../scss/_organisms.scss'
+import React from "react";
+import BHeading from "../atoms/BHeading";
+import ZipCodeForm from "../molecules/ZipCodeForm";
+import "../../scss/_organisms.scss";
 
 const ZipCodeBox: React.FC = () => {
   return (
@@ -12,6 +12,6 @@ const ZipCodeBox: React.FC = () => {
       </div>
     </div>
   );
-}
+};
 
 export default ZipCodeBox;
