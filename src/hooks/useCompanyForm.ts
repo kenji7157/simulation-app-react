@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState, useContext } from "react";
+import { useState, useContext } from "react";
 import { getCompanyOptions } from "../util/optionsUtil";
 import {
   companyTypes,
@@ -7,6 +7,7 @@ import {
   areaTypes,
   AreaTypes,
 } from "../types";
+import { useUpdateEffect } from "./useUpdateEffect";
 import { AppContext } from "../context/AppContext";
 
 function defaultCompanyType(areaType: AreaTypes) {
@@ -26,20 +27,13 @@ export const useCompanyForm = () => {
   const [companyOptions, setCompanyOptions] = useState<SelectOption[]>([]);
 
   const [isOtherCompany, setIsOtherCompany] = useState(false);
-  const isFirstRender = useRef(true);
 
   const setCompanyType = (value: string) => {
     // NOTE: asなんとかしたい
     dispatch({ type: "setCompanyType", value: value as CompanyTypes });
   };
 
-  // NOTE: useCallBackを使ったほうが良いらしいので確認する
-  useEffect(() => {
-    // 初回レンダリング時はrefをfalseにして、return。
-    if (isFirstRender.current) {
-      isFirstRender.current = false;
-      return;
-    }
+  useUpdateEffect(() => {
     const options = getCompanyOptions(simulationData.area);
     setCompanyOptions(options);
 
@@ -47,14 +41,7 @@ export const useCompanyForm = () => {
     setCompanyType(companyType);
   }, [simulationData.area]);
 
-  // NOTE: useCallBackを使ったほうが良いらしいので確認する
-  useEffect(() => {
-    // 初回レンダリング時はrefをfalseにして、return。
-    if (isFirstRender.current) {
-      isFirstRender.current = false;
-      return;
-    }
-
+  useUpdateEffect(() => {
     setIsOtherCompany(simulationData.company === companyTypes.OTHER);
   }, [simulationData.company]);
 

@@ -1,6 +1,7 @@
-import { useEffect, useRef, useState, useContext } from "react";
+import { useState, useContext } from "react";
 import { getPlanOptions } from "../util/optionsUtil";
 import { SelectOption, PlanTypes, planTypes } from "../types";
+import { useUpdateEffect } from "./useUpdateEffect";
 import { AppContext } from "../context/AppContext";
 
 export const usePlanForm = () => {
@@ -12,7 +13,6 @@ export const usePlanForm = () => {
   >([]);
 
   const [explain, setExplain] = useState("");
-  const isFirstRender = useRef(true);
 
   const setPlanType = (value: string) => {
     // NOTE: asなんとかしたい
@@ -26,12 +26,7 @@ export const usePlanForm = () => {
   };
 
   // NOTE: useCallBackを使ったほうが良いらしいので確認する
-  useEffect(() => {
-    // 初回レンダリング時はrefをfalseにして、return。
-    if (isFirstRender.current) {
-      isFirstRender.current = false;
-      return;
-    }
+  useUpdateEffect(() => {
     const options = getPlanOptions(simulationData.company);
     setPlanOptions(options);
     setPlanType(

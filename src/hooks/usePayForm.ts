@@ -1,4 +1,5 @@
-import { useEffect, useRef, useState, useContext } from "react";
+import { useState, useContext } from "react";
+import { useUpdateEffect } from "./useUpdateEffect";
 import { AppContext } from "../context/AppContext";
 import { halfWidthNumber } from "../util/stringUtil";
 import { isValidPay } from "../util/validationUtil";
@@ -6,7 +7,6 @@ import { isValidPay } from "../util/validationUtil";
 export const usePayForm = () => {
   const { state, dispatch } = useContext(AppContext);
 
-  const isFirstRender = useRef(true);
   const [isError, setIsError] = useState(false);
 
   const simulationData = state.simulationData;
@@ -16,13 +16,7 @@ export const usePayForm = () => {
     dispatch({ type: "setPay", value: pay });
   };
 
-  useEffect(() => {
-    // 初回レンダリング時はrefをfalseにして、return。
-    if (isFirstRender.current) {
-      isFirstRender.current = false;
-      return;
-    }
-
+  useUpdateEffect(() => {
     const result = !isValidPay(simulationData.pay);
     setIsError(result);
   }, [simulationData.pay]);

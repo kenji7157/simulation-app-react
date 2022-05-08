@@ -1,5 +1,6 @@
-import { useEffect, useRef, useState, useContext } from "react";
+import { useState, useContext } from "react";
 import { areaTypes } from "../types";
+import { useUpdateEffect } from "./useUpdateEffect";
 import { AppContext } from "../context/AppContext";
 import { halfWidthNumber } from "../util/stringUtil";
 
@@ -24,16 +25,9 @@ export const useZipCodeForm = () => {
   };
 
   const [isOtherAreaType, setIsOtherAreaType] = useState(false);
-  const isFirstRender = useRef(true);
 
   // NOTE: useCallBackを使ったほうが良いらしいので確認する
-  useEffect(() => {
-    // 初回レンダリング時はrefをfalseにして、return。
-    if (isFirstRender.current) {
-      isFirstRender.current = false;
-      return;
-    }
-
+  useUpdateEffect(() => {
     setIsOtherAreaType(simulationData.area === areaTypes.OTHER);
   }, [simulationData.area]);
 
