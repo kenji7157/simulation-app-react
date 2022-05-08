@@ -1,15 +1,7 @@
-import { areaTypes, companyTypes, planTypes, State } from "../types";
+import { State } from "../types";
+import simulationData from "./simulationData";
 
 export const initialState: State = {
   // NOTE: グローバルに持ちたいStateを以下に定義
-  simulationData: {
-    firstZipCode: "",
-    secondZipCode: "",
-    area: areaTypes.UNSELECTED,
-    company: companyTypes.UNSELECTED,
-    plan: planTypes.UNSELECTED,
-    ampere: "",
-    pay: "",
-    email: "",
-  },
+  simulationData,
 };
