@@ -9,14 +9,13 @@ export const usePlanForm = () => {
 
   const simulationData = state.simulationData;
   const [planOptions, setPlanOptions] = useState<
-    (SelectOption & { explain: string })[]
+    (SelectOption<PlanTypes> & { explain: string })[]
   >([]);
 
   const [explain, setExplain] = useState("");
 
-  const setPlanType = (value: string) => {
-    // NOTE: asなんとかしたい
-    dispatch({ type: "setPlanType", value: value as PlanTypes });
+  const setPlanType = (value: PlanTypes) => {
+    dispatch({ type: "setPlanType", value });
     const target = planOptions.find((planOption) => {
       return planOption.value === value;
     });

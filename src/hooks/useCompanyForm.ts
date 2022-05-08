@@ -24,13 +24,14 @@ export const useCompanyForm = () => {
   const { state, dispatch } = useContext(AppContext);
 
   const simulationData = state.simulationData;
-  const [companyOptions, setCompanyOptions] = useState<SelectOption[]>([]);
+  const [companyOptions, setCompanyOptions] = useState<
+    SelectOption<CompanyTypes>[]
+  >([]);
 
   const [isOtherCompany, setIsOtherCompany] = useState(false);
 
-  const setCompanyType = (value: string) => {
-    // NOTE: asなんとかしたい
-    dispatch({ type: "setCompanyType", value: value as CompanyTypes });
+  const setCompanyType = (value: CompanyTypes) => {
+    dispatch({ type: "setCompanyType", value });
   };
 
   useUpdateEffect(() => {

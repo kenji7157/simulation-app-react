@@ -2,15 +2,17 @@ import React from "react";
 import { SelectOption } from "../../types";
 import "../../scss/components/atoms/BSelect.scss";
 
-type Props = {
+type Props<T extends string> = {
   value: string;
   disabled: boolean;
-  options: (SelectOption & { explain?: string })[];
+  options: (SelectOption<T> & { explain?: string })[];
   explain?: string;
-  changeSelect: (value: string) => void;
+  changeSelect: (value: T) => void;
 };
 
-const BSelect: React.FC<Props> = (props: Props) => {
+const BSelect: <T extends string>(
+  p: Props<T>
+) => React.ReactElement<Props<T>> = <T extends string>(props: Props<T>) => {
   // TOOD: リアクティブに動くよう修正
   const styleVariables: Record<string, string> = {
     "--border-radius": props.explain ? "0.4rem 0.4rem 0 0" : "0.4rem",
@@ -27,7 +29,7 @@ const BSelect: React.FC<Props> = (props: Props) => {
       <select
         className={"a_select_select" + (props.disabled ? " disabled" : "")}
         value={props.value}
-        onChange={(event) => props.changeSelect(event.currentTarget.value)}
+        onChange={(event) => props.changeSelect(event.currentTarget.value as T)}
       >
         {props.options.map((option, index) => {
           return (

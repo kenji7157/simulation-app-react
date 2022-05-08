@@ -3,6 +3,7 @@ import BLabel from "../atoms/BLabel";
 import BSelect from "../atoms/BSelect";
 import BInfoMessage from "../atoms/BInfoMessage";
 import { usePlanForm } from "../../hooks/usePlanForm";
+import { PlanTypes } from "../../types";
 
 const PlanForm: React.FC = () => {
   const { simulationData, planOptions, setPlanType, explain } = usePlanForm();
@@ -10,7 +11,7 @@ const PlanForm: React.FC = () => {
   return (
     <div>
       <BLabel label="プラン" isRequired={true} />
-      <BSelect
+      <BSelect<PlanTypes>
         value={simulationData.plan}
         disabled={planOptions.length === 0}
         options={planOptions}

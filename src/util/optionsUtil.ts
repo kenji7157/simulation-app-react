@@ -4,13 +4,16 @@ import {
   companyTypes,
   CompanyTypes,
   planTypes,
+  PlanTypes,
   ISimulation,
   SelectOption,
 } from "../types";
 
 // 電力会社の選択肢を生成
-export function getCompanyOptions(area: AreaTypes): SelectOption[] {
-  const otherOption: SelectOption = {
+export function getCompanyOptions(
+  area: AreaTypes
+): SelectOption<CompanyTypes>[] {
+  const otherOption: SelectOption<CompanyTypes> = {
     value: companyTypes.OTHER,
     label: companyTypes.OTHER,
   };
@@ -38,7 +41,7 @@ export function getCompanyOptions(area: AreaTypes): SelectOption[] {
 // プランの選択肢を生成
 export function getPlanOptions(
   company?: CompanyTypes
-): (SelectOption & { explain: string })[] {
+): (SelectOption<PlanTypes> & { explain: string })[] {
   if (company === companyTypes.TOKYO_DENRYOKU) {
     return [
       {
@@ -71,7 +74,9 @@ export function getPlanOptions(
 }
 
 // 契約容量の選択肢を生成
-export function getAmpereOptions(simulationData: ISimulation): SelectOption[] {
+export function getAmpereOptions(
+  simulationData: ISimulation
+): SelectOption<string>[] {
   if (simulationData.company === companyTypes.TOKYO_DENRYOKU) {
     if (simulationData.plan === planTypes.PLAN_B) {
       return ["10A", "15A", "20A", "30A", "40A", "50A", "60A"].map((elm) => {

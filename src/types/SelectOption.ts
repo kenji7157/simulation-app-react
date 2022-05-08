@@ -1,7 +1,7 @@
 /** セレクタオプションの型定義 */
-export type SelectOption = {
+export type SelectOption<T> = {
   /** 値 */
-  value: string;
+  value: T;
   /** ラベル文言 */
   label: string;
   /** 選択状態 */

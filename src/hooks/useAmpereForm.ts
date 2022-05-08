@@ -8,7 +8,7 @@ export const useAmpereForm = () => {
   const { state, dispatch } = useContext(AppContext);
 
   const simulationData = state.simulationData;
-  const [ampereOption, setAmpereOption] = useState<SelectOption[]>([]);
+  const [ampereOption, setAmpereOption] = useState<SelectOption<string>[]>([]);
 
   const setAmpere = (value: string) => {
     dispatch({ type: "setAmpere", value });

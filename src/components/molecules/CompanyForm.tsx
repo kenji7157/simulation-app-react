@@ -3,6 +3,7 @@ import BLabel from "../atoms/BLabel";
 import BSelect from "../atoms/BSelect";
 import BErrorMessage from "../atoms/BErrorMessage";
 import { useCompanyForm } from "../../hooks/useCompanyForm";
+import { CompanyTypes } from "../../types";
 
 const CompanyForm: React.FC = () => {
   const { simulationData, companyOptions, isOtherCompany, setCompanyType } =
@@ -11,7 +12,7 @@ const CompanyForm: React.FC = () => {
   return (
     <div>
       <BLabel label="電力会社" isRequired={true} />
-      <BSelect
+      <BSelect<CompanyTypes>
         value={simulationData.company}
         disabled={companyOptions.length === 0}
         options={companyOptions}
